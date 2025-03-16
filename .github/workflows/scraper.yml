@@ -2,11 +2,11 @@ name: First Scraper
 
 on:
   workflow_dispatch:
-  inputs:
-    state:
-      description: 'U.S. state to scrape'
-      required: true
-      default: 'ia'
+    inputs:
+      state:
+        description: 'U.S. state to scrape'
+        required: true
+        default: 'ia'
   schedule:
   - cron: "0 0 * * *"
 
@@ -33,7 +33,7 @@ jobs:
         run: warn-scraper ${{ inputs.state }} --data-dir ./data/
 
       - name: Save datestamp
-        run: date > .data/latest-scrape.txt
+        run: date > ./data/latest-scrape.txt
 
       - name: Commit and push
         run: |
